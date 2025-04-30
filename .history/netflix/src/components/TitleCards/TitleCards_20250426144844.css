@@ -1,0 +1,59 @@
+.title-cards {
+  padding: 0 6%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.title-cards h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.card-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.card-list::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.card {
+  min-width: 240px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-list img {
+  width: 240px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-list .card {
+  position: relative;
+  min-width: 240px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.card-list .card p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+}

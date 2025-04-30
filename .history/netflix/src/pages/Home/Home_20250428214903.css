@@ -1,0 +1,78 @@
+.hero {
+  position: relative;
+}
+
+.banner-img {
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 75%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-left: 6%;
+  padding-bottom: 60px;
+}
+
+.caption-img {
+  width: 90%;
+  max-width: 420px;
+  margin-bottom: 30px;
+}
+
+.hero-caption p {
+  max-width: 700px;
+  font-size: 17px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.hero-btns .btn {
+  border: 0;
+  outline: 0;
+  padding: 8px 20px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btns .btn:hover {
+  background-color: #e6e6e6;
+}
+
+.hero-btns .btn img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+
+.hero-btns .btn.dark-btn {
+  color: #fff;
+  background: #6d6d6eb3; /* translucent dark */
+}
+
+.hero-btns .btn:hover {
+  background: #ffffffbf; /* slightly translucent white */
+}
+
+.hero-btns .btn.dark-btn:hover {
+  background: #525252c7; /* slightly darker on hover */
+}
+
+.more-cards {
+  margin-top: 50px;
+  padding: 0 5%;
+}

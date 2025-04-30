@@ -1,0 +1,33 @@
+.hero-btns .btn {
+  font-size: 15px;
+  font-weight: 600;
+  background: white;
+  color: black;
+  border-radius: 4px;
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.hero-btns .btn img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+/* Dark Button Style (e.g., for "More Info") */
+.hero-btns .btn.dark-btn {
+  color: #fff;
+  background: #6d6d6eb3; /* translucent dark */
+}
+
+.hero-btns .btn:hover {
+  background: #ffffffbf; /* slightly translucent white */
+}
+
+.hero-btns .btn.dark-btn:hover {
+  background: #525252c7; /* slightly darker on hover */
+}

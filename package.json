@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.7.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "react-router-dom": "^7.5.3"
+  },
+  "devDependencies": {
+    "prisma": "^6.7.0"
+  }
+}
