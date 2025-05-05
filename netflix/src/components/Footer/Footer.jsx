@@ -7,8 +7,10 @@ import instagram_icon from '../../assets/instagram_icon.png';
 import facebook_icon from '../../assets/facebook_icon.png';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div className='footer'>
+    <footer className='footer'>
       <div className="footer-icons">
         <img src={facebook_icon} alt="Facebook" />
         <img src={instagram_icon} alt="Instagram" />
@@ -30,7 +32,9 @@ const Footer = () => {
         <li>Corporate Information</li>
         <li>Contact Us</li>
       </ul>
-    </div>
+
+      
+    </footer>
   );
 };
 

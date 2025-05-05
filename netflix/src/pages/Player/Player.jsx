@@ -4,8 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const Player = () => {
-
- 
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -25,7 +23,7 @@ const Player = () => {
   };
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/693134/videos?language=en-US`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
       .then(response => response.json())
       .then(data => {
         if (data.results && data.results.length > 0) {
@@ -54,7 +52,7 @@ const Player = () => {
       ></iframe>
 
       <div className="player-info">
-        <p>Published: {apiData.published_at}</p>
+        <p>Published: {apiData.published_at.slice(0,10)}</p>
         <p>Name: {apiData.name}</p>
         <p>Type: {apiData.type}</p>
       </div>

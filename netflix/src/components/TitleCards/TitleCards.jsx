@@ -43,8 +43,8 @@ const TitleCards = ({ title, category }) => {
     <div className="title-cards">
       <h2>{title || 'Popular on Netflix'}</h2>
       <div className="card-list" ref={cardsRef}>
-        {apiData.map((card) => (
-          <Link to={`/player/${card.id}`} key={card.id} className="card">
+        {apiData.map((card,index) => (
+          <Link to={`/player/${card.id}`} key={index} className="card">
             {card.backdrop_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`}

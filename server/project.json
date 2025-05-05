@@ -1,0 +1,15 @@
+{
+  "projectId": "prj_rnuRWbakuZwG98EKxzA5zIkB6d8j",
+  "orgId": "team_gz0vuHUNxC0443PNeYEzYcIX",
+  "settings": {
+    "createdAt": 1745994371434,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": "netflix/",
+    "directoryListing": false,
+    "nodeVersion": "22.x"
+  }
+}

@@ -39,8 +39,8 @@ const Home = () => {
 
       {/* Movie lists */}
       <div className="more-cards">
-        <TitleCards title="Popular" category={"top_rated"} />
-        <TitleCards title="Blockbuster Movies" category={"popular"} />
+        <TitleCards title="Blockbuster Movies" category={"top_rated"} />
+        <TitleCards title="Top Pics for you" category={"popular"} />
         <TitleCards title="Only on Netflix" category={"upcoming"} />
         <TitleCards title="Upcoming" category={"now_playing"}/>
       </div>
