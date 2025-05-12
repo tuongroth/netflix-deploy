@@ -2,25 +2,45 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './TitleCards.css';
 
-const TitleCards = ({ title, category }) => {
-  const [apiData, setApiData] = useState([]);
+const TitleCards = ({ title, category, showGenreDropdown, setShowGenreDropdown }) => {
+  const [apiData, setApiData] = useState([]);  // Dữ liệu phim
+  const [genres, setGenres] = useState([]);   // Dữ liệu thể loại
+  const [selectedGenre, setSelectedGenre] = useState('');  // Thể loại người dùng chọn
   const cardsRef = useRef();
 
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MTIyOThmMzlkYWFkOTlkYjU5YTExMTk2YWU1OGQ3MyIsIm5iZiI6MS43NDYwMjY1MTQ1MTEwMDAyZSs5LCJzdWIiOiI2ODEyNDAxMmRlMDI4NDcyNjdhMGViMmQiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.wCTfAGApgNLfsltAdM_otpe4q_RDH1eEzBmER-nOVAs',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MTIyOThmMzlkYWFkOTlkYjU5YTExMTk2YWU1OGQ3MyIsIm5iZiI6MS43NDYwMjY1MTQ1MTEwMDAyZSs5LCJzdWIiOiI2ODEyNDAxMmRlMDI4NDcyNjdhMGViMmQiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.wCTfAGApgNLfsltAdM_otpe4q_RDH1eEzBmER-nOVAs', // Đảm bảo thay thế bằng API Key của bạn
     }
   };
 
+  // Fetch danh sách thể loại
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options)
+    fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
+      .then(res => res.json())
+      .then(res => setGenres(res.genres || []))  // Lưu dữ liệu thể loại vào state
+      .catch(err => console.error("Error fetching genres:", err));
+  }, []);
+
+  // Fetch phim theo thể loại hoặc theo category
+  useEffect(() => {
+    let url = '';
+
+    if (selectedGenre) {
+      url = `https://api.themoviedb.org/3/discover/movie?api_key=YOUR_API_KEY&with_genres=${selectedGenre}`;
+    } else {
+      url = `https://api.themoviedb.org/3/movie/${category || 'now_playing'}?language=en-US&page=1`;
+    }
+
+    fetch(url, options)
       .then(response => response.json())
       .then(data => setApiData(data.results || []))
       .catch(err => console.error("Error fetching data:", err));
-  }, [category]);
+  }, [category, selectedGenre]);
 
+  // Xử lý sự kiện cuộn ngang
   const handleWheel = (event) => {
     event.preventDefault();
     cardsRef.current.scrollLeft += event.deltaY;
@@ -41,9 +61,26 @@ const TitleCards = ({ title, category }) => {
 
   return (
     <div className="title-cards">
-      <h2>{title || 'Popular on Netflix'}</h2>
+      <h2>{title || 'Popular Movies'}</h2>
+
+      {/* Hiển thị dropdown khi showGenreDropdown là true */}
+      {showGenreDropdown && (
+        <select
+          value={selectedGenre}
+          onChange={(e) => setSelectedGenre(e.target.value)}
+          className="genre-select"
+        >
+          <option value="">All Genres</option>
+          {genres.map((genre) => (
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
+      )}
+
       <div className="card-list" ref={cardsRef}>
-        {apiData.map((card,index) => (
+        {apiData.map((card, index) => (
           <Link to={`/player/${card.id}`} key={index} className="card">
             {card.backdrop_path && (
               <img

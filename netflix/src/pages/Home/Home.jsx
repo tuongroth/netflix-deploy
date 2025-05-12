@@ -27,12 +27,15 @@ const Home = () => {
 
           <div className="hero-btns">
             <button className="btn">
-              <img src={play_icon} alt="Play Icon" /> Play
+              <img  onClick={() => navigate('/TVshows')} src={play_icon} alt="Play Icon" /> Play
             </button>
             <button className="btn dark-btn">
               <img src={info_icon} alt="Info Icon" /> More Info
             </button>
           </div>
+
+          
+
           <TitleCards />
         </div>
       </div>

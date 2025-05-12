@@ -7,6 +7,10 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import  { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import TVShowsPage from './pages/TVShows/TVShows';
+import MyList from './pages/MyList/MyList';
+import MovieDetail from './pages/MovieDetail/MovieDetail';
+
   
 
 
@@ -35,9 +39,14 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/player/:id' element={<Player />} />
+        <Route path='/TVshows' element={<TVShowsPage />} />
+        <Route path='/Mylist' element={<MyList />} />
+        <Route path='/movie/:id' element={<MovieDetail />} />
       </Routes>
     </div>
   );
 };
+
+
 
 export default App;
