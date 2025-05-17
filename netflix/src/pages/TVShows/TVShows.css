@@ -1,37 +1,27 @@
-.movie-container {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  color: white;
-  padding: 20px;
-}
-.movie-info {
-  padding-top: 350px;
-}
-.movie-title {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.movie-subtitle {
-  font-size: 36px;
-  font-weight: 500;
-  margin: 5px 0;
-}
-.movie-overview {
-  font-size: 20px;
-  margin: 20px 0;
-}
-.play-trailer {
-  background: rgba(255,255,255,0.2);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-.play-trailer:hover {
-  background: rgba(255,255,255,0.4);
+/* Responsive cho màn hình nhỏ dưới 600px */
+@media (max-width: 600px) {
+  .movie-detail-container {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .movie-detail-backdrop {
+    height: 50vh !important;
+    padding: 10px !important;
+  }
+
+  .movie-info {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  .review-section {
+    height: auto !important;
+    padding: 10px !important;
+  }
+
+  button {
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+  }
 }

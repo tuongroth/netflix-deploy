@@ -8,9 +8,7 @@ import { auth } from './firebase';
 import  { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import TVShowsPage from './pages/TVShows/TVShows';
-import MyList from './pages/MyList/MyList';
-import MovieDetail from './pages/MovieDetail/MovieDetail';
-
+import TitleCards from './components/TitleCards/TitleCards';
   
 
 
@@ -29,10 +27,12 @@ const App = () => {
      
       }
     
+      
     
    })}, []);
   
   return (
+    
     <div>
       <ToastContainer theme='dark' />
       <Routes>
@@ -40,8 +40,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/player/:id' element={<Player />} />
         <Route path='/TVshows' element={<TVShowsPage />} />
-        <Route path='/Mylist' element={<MyList />} />
-        <Route path='/movie/:id' element={<MovieDetail />} />
+        <Route path="/movies" element={<TitleCards title="Movies by Genre" />} />
       </Routes>
     </div>
   );
