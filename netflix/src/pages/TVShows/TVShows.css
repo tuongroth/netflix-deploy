@@ -1,0 +1,38 @@
+/* Các style mặc định */
+.movie-detail-container {
+  height: 100vh;
+  display: flex;
+}
+
+.movie-detail-backdrop {
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: relative;
+}
+
+.review-section {
+  background-color: black;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Media queries cho màn hình nhỏ */
+@media screen and (max-width: 600px) {
+  .movie-detail-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .movie-detail-backdrop {
+    height: 50vh;
+    padding: 10px;
+  }
+
+  .review-section {
+    height: auto;
+    padding: 10px;
+  }
+}
